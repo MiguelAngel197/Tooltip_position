@@ -1,0 +1,77 @@
+* {
+  /*es una buena práctica poner el margin y el padding a 0 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #efefef;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto; /*con esto lo centramos*/
+  padding: 60px 0; /*margen arriba y abajo de 60px y a los costados tiene 0 */
+}
+
+article {
+  background: #fff;
+  color: #707070;
+  border-radius: 10px;
+  padding: 40px;
+  font-size: 16px;
+  line-height: 32px;
+  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip {
+  font-weight: normal;
+  color: #3c48e5;
+  text-decoration: none;
+  position: relative;
+}
+
+.tooltip:hover {
+  text-decoration: underline;
+}
+
+.tooltip:hover .tooltip-box-top{
+  display: inline-block;
+}
+
+.tooltip-box-top {
+  display: none;
+  position: absolute;
+  background: #000;
+  line-height: 20px;
+  z-index: 500;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+}
+
+.tooltip-box-top::after {
+  content: ''; /*agregamos contenido vacío */
+  display: block;
+  /*ahora creamos un triangulito debajo de la caja como una punta de flecha. Lo hacemos con estas tres líneas y con colores para ver cómo se queda */
+
+  /* border-top: 20px solid red;
+  border-left: 20px solid blue;
+  border-right: 20px solid blue;
+  position: absolute; */
+
+  border-top: 7px solid #000;
+  border-left: 7px solid  transparent;
+  border-right: 7px solid transparent;
+  position: absolute; /*aqui el trianguliot se queda debajo*/
+  bottom: -7px; /*con esto lo empujamos*/
+  left: calc(50% - 7px);/*con esto llevamos el triangulito al centro. La mitad es el 50% menos los 7px porque es el tamaño que tiene el triangulito */
+}
